@@ -1,0 +1,13 @@
+name: Build
+on: [push]
+jobs:
+  build:
+    name: Build
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v1
+        with:
+          fetch-depth: 1
+      - name: Build
+        run: make -j $(nproc) V=1 T=1 build/osie-x86_64.tar.gz
