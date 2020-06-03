@@ -9,5 +9,6 @@ jobs:
         uses: actions/checkout@v1
         with:
           fetch-depth: 1
+          submodules: true
       - name: Build
         run: make -j $(nproc) V=1 T=1 build/osie-x86_64.tar.gz
